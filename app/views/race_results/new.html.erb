@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @race_result.errors.any? %>
+  <% @race_result.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Race Result</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_race_result" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for summary -->
+      <div class="form-group">
+        <label for="summary" class="control-label">
+          Summary
+        </label>
+
+        <textarea id="summary" name="summary" placeholder="Summary" class="form-control" rows="3"><%= @race_result.summary %></textarea>
+      </div>
+
+      <!-- Label and input for pr -->
+      <div class="form-group">
+        <label for="pr" class="control-label">
+          Pr
+        </label>
+
+        <input type="text" id="pr" name="pr" placeholder="Pr" class="form-control" value="<%= @race_result.pr %>">
+      </div>
+
+      <!-- Label and input for time -->
+      <div class="form-group">
+        <label for="time" class="control-label">
+          Time
+        </label>
+
+        <input type="text" id="time" name="time" placeholder="Time" class="form-control" value="<%= @race_result.time %>">
+      </div>
+
+      <!-- Label and input for race_id -->
+      <div class="form-group">
+        <label for="race_id" class="control-label">
+          Race
+        </label>
+
+        <input type="text" id="race_id" name="race_id" placeholder="Race" class="form-control" value="<%= @race_result.race_id %>">
+      </div>
+
+      <!-- Label and input for runner_id -->
+      <div class="form-group">
+        <label for="runner_id" class="control-label">
+          Runner
+        </label>
+
+        <input type="text" id="runner_id" name="runner_id" placeholder="Runner" class="form-control" value="<%= @race_result.runner_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Race Result
+      </button>
+      or
+      <a href="/race_results">Cancel</a>
+    </form>
+  </div>
+</div>
