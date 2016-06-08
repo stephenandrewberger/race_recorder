@@ -1,12 +1,14 @@
 <div class="page-header">
-  <h3>State #<%= @state.id %></h3>
+  <h3><%= @state.name %> Half Marathon</h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
-      <dt>Name</dt>
-      <dd><%= @state.name %></dd>
+      <dt> Race Name:</dt>
+      <% @state.races.each do |race| %>
+      <dd><%= state.race.name %></dd>
+      <% end %>
 
     </dl>
 
