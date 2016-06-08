@@ -1,16 +1,39 @@
 <div class="page-header">
-  <h3><%= @state.name %> Half Marathon</h3>
+  <h3><%= @state.name %> Half Marathons</h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
-      <dt> Race Name:</dt>
-      <% @state.races.each do |race| %>
-      <dd><%= state.race.name %></dd>
-      <% end %>
 
+      <% @state.races.each do |race| %>
+      <dt>Race:</dt>
+      <dd><% race.name %></dd>
+
+      <dt>Date:</dt>
+      <dd><% race.date %></dd>
+
+      <% race.race_results.each do |result| %>
+      <dt>Runner:</dt>
+      <dd><% =Runner.find(race_result.runner_id).name %></dd>
+
+      <dt>Finish Time:</dt>
+      <dd><% =Runner.find(race_result.time) %></dd>
+
+      <dt>PR:</dt>
+      <dd><% =Runner.find(race_result.pr) %></dd>
+
+      <dt>PR:</dt>
+      <dd><% =Runner.find(race_result.summary) %></dd>
+
+      <% race.photos.each do |photo| %>
+      <dt>Photos:</dt>
+      <dd> <img src="<% =Runner.find(photo.photo_url) %>"></dd>
+
+      <% end %>
+      <% end %>
     </dl>
+
 
     <div class="btn-group btn-group-justified">
       <a href="/states" class="btn btn-primary">
