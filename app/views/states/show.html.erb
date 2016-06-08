@@ -8,27 +8,27 @@
 
       <% @state.races.each do |race| %>
       <dt>Race:</dt>
-      <dd><% race.name %></dd>
+      <dd><%= race.name %></dd>
 
       <dt>Date:</dt>
-      <dd><% race.date %></dd>
+      <dd><%= race.date %></dd>
 
       <% race.race_results.each do |result| %>
       <dt>Runner:</dt>
-      <dd><% =Runner.find(race_result.runner_id).name %></dd>
+      <dd><%= Runner.find(result.runner_id).name %></dd>
 
       <dt>Finish Time:</dt>
-      <dd><% =Runner.find(race_result.time) %></dd>
+      <dd><%= result.time %></dd>
 
       <dt>PR:</dt>
-      <dd><% =Runner.find(race_result.pr) %></dd>
+      <dd><%= result.pr %></dd>
 
-      <dt>PR:</dt>
-      <dd><% =Runner.find(race_result.summary) %></dd>
+      <dt>Summary:</dt>
+      <dd><%= result.summary %></dd>
 
       <% race.photos.each do |photo| %>
       <dt>Photos:</dt>
-      <dd> <img src="<% =Runner.find(photo.photo_url) %>"></dd>
+      <dd> <img src="<% photo.photo_url %>"></dd>
 
       <% end %>
       <% end %>
@@ -48,3 +48,5 @@
     </div>
   </div>
 </div>
+
+<% end %>
