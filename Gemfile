@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "coffee-script-source", "1.8.0"
+
 gem "starter_generators", :git => "http://github.com/raghubetina/starter_generators.git"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -2,7 +2,6 @@ class CreateRaces < ActiveRecord::Migration
   def change
     create_table :races do |t|
       t.integer :state_id
-      t.integer :id
       t.string :city
       t.string :state
       t.date :date

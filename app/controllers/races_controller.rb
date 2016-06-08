@@ -14,7 +14,6 @@ class RacesController < ApplicationController
   def create
     @race = Race.new
     @race.state_id = params[:state_id]
-    @race.id = params[:id]
     @race.city = params[:city]
     @race.state = params[:state]
     @race.date = params[:date]
@@ -35,7 +34,6 @@ class RacesController < ApplicationController
     @race = Race.find(params[:id])
 
     @race.state_id = params[:state_id]
-    @race.id = params[:id]
     @race.city = params[:city]
     @race.state = params[:state]
     @race.date = params[:date]
