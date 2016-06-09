@@ -18,13 +18,14 @@
       <dd><%= Runner.find(result.runner_id).name %></dd>
 
       <dt>Finish Time:</dt>
-      <dd><%= result.time %></dd>
+      <dd><%= Time.at(result.time).utc.strftime("%H:%M:%S") %></dd>
 
       <dt>PR:</dt>
       <dd><%= result.pr %></dd>
 
       <dt>Summary:</dt>
       <dd><%= result.summary %></dd>
+      <% end %>
 
       <% race.photos.each do |photo| %>
       <dt>Photos:</dt>
@@ -32,6 +33,7 @@
 
       <% end %>
       <% end %>
+
     </dl>
 
 
@@ -39,7 +41,7 @@
       <a href="/states" class="btn btn-primary">
         Back
       </a>
-      <a href="/states/<%= @state.id %>/edit" class="btn btn-warning">
+      <a href="/states/<%= @state.id %>/edit" class="btn btn-warning"<%  %>warning">
         Edit
       </a>
       <a href="/delete_state/<%= @state.id %>" class="btn btn-danger" rel="nofollow">
@@ -48,5 +50,3 @@
     </div>
   </div>
 </div>
-
-<% end %>

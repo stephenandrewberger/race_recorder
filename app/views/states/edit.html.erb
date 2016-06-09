@@ -1,15 +1,15 @@
 <!-- Validation failure messages -->
 <% if @state.errors.any? %>
-  <% @state.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @state.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 
 <div class="page-header">
-  <h3>Edit State #<%= @state.id %></h3>
+  <h3>Edit <%= @state.name %> Half Marathons </h3>
 </div>
 
 <div class="row">
@@ -18,14 +18,75 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for name -->
+      <!-- Label and input for race -->
       <div class="form-group">
-        <label for="name" class="control-label">
-          Name
+        <% @state.races.each do |race| %>
+        <label for="race" class="control-label">
+          Race:
         </label>
 
-        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @state.name %>">
+        <input type="text" id="race" name="race" placeholder="Race" class="form-control" value="<%= race.name %>">
       </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date:
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= race.date %>">
+      </div>
+
+      <!-- Label and input for runner -->
+      <div class="form-group">
+        <% race.race_results.each do |result| %>
+        <label for="runner" class="control-label">
+          Runner:
+        </label>
+
+        <input type="text" id="runner" name="runner" placeholder="Runner" class="form-control" value="<%= Runner.find(result.runner_id).name %>">
+      </div>
+
+      <!-- Label and input for finish time -->
+      <div class="form-group">
+        <label for="time" class="control-label">
+          Finish Time:
+        </label>
+
+        <input type="text" id="time" name="time" placeholder="Time" class="form-control" value="<%= Time.at(result.time).utc.strftime("%H:%M:%S") %>">
+      </div>
+
+      <!-- Label and input for PR -->
+      <div class="form-group">
+        <label for="pr" class="control-label">
+          PR:
+        </label>
+
+        <input type="text" id="pr" name="pr" placeholder="PR" class="form-control" value="<%= result.pr %>">
+      </div>
+
+      <!-- Label and input for Summary -->
+      <div class="form-group">
+        <label for="summary" class="control-label">
+          Summary:
+        </label>
+
+        <input type="text" id="summary" name="summary" placeholder="Summary" class="form-control" value="<%= result.summary %>">
+      </div>
+
+      <!-- Label and input for Photos -->
+      <div class="form-group">
+        <% race.photos.each do |photo| %>
+        <label for="photos" class="control-label">
+          Photo url:
+        </label>
+
+        <input type="text" id="photos" name="photos" placeholder="Photos" class="form-control" value="<%= photo.photo_url %>">
+      </div>
+
+      <% end %>
+      <% end %>
+      <% end %>
 
       <button class="btn btn-warning">
         Update State
