@@ -9,20 +9,21 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
+        <th>Race</th>
         <th>Summary</th>
         <th>Pr</th>
         <th>Time</th>
-        <th>Race</th>
         <th>Runner</th>
         <th>Actions</th>
       </tr>
 
+
       <% @race_results.each do |race_result| %>
       <tr>
+        <td><%= race_result.race.name %></td>
         <td><%= race_result.summary %></td>
         <td><%= race_result.pr %></td>
         <td><%= race_result.time %></td>
-        <td><%= race_result.race_id %></td>
         <td><%= race_result.runner_id %></td>
         <td>
           <a href="/race_results/<%= race_result.id %>" class="btn btn-primary">Show</a>
