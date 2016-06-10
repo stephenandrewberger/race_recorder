@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit Photo #<%= @photo.id %></h3>
+  <h3>Edit Photo </h3>
 </div>
 
 <div class="row">
@@ -24,7 +24,7 @@
           Runner
         </label>
 
-        <input type="text" id="runner_id" name="runner_id" placeholder="Runner" class="form-control" value="<%= @photo.runner_id %>">
+      <%= select_tag(:runner_id, options_from_collection_for_select(Runner.all, :id, :name, @photo.runner_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for race_id -->
@@ -33,7 +33,7 @@
           Race
         </label>
 
-        <input type="text" id="race_id" name="race_id" placeholder="Race" class="form-control" value="<%= @photo.race_id %>">
+      <%= select_tag(:race_id, options_from_collection_for_select(Race.all, :id, :name, @photo.race_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for photo_url -->

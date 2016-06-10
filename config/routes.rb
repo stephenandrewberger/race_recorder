@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   # Routes for the Race resource:
+
+  root "states#index"
   # CREATE
   get "/races/new", :controller => "races", :action => "new"
   post "/create_race", :controller => "races", :action => "create"

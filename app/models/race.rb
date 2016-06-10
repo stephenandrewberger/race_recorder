@@ -13,7 +13,7 @@ class Race < ActiveRecord::Base
   # - city: must be present
   validates :city, :presence => true
 
-  # - state: must be present
+  # - city: must be present
   validates :state, :presence => true
 
 end

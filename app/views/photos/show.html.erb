@@ -1,18 +1,18 @@
 <div class="page-header">
-  <h3>Photo #<%= @photo.id %></h3>
+  <h3>Photo of <%= @photo.runner.name %> from <%= @photo.race.name %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
       <dt>Runner</dt>
-      <dd><%= @photo.runner_id %></dd>
+      <dd><%= @photo.runner.name %></dd>
 
       <dt>Race</dt>
-      <dd><%= @photo.race_id %></dd>
+      <dd><%= @photo.race.name %></dd>
 
-      <dt>Photo url</dt>
-      <dd><%= @photo.photo_url %></dd>
+      <dt>Photo</dt>
+      <dd><img src="<%= @photo.photo_url %>" width="40%"</td></dd>
 
     </dl>
 
