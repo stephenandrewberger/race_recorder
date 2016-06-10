@@ -23,12 +23,12 @@
 
       <% @race_results.each do |race_result| %>
       <tr>
-        <td><%= race_result.runner.name %></td>
-        <td><%= truncate(race_result.race.name) %></td>
-        <td><%= (race_result.race.date).strftime(" %m/%d/%Y") %></td>
-        <td><%= race_result.race.city %></td>
-        <td><%= race_result.race.state.name %></td>
-        <td><%= truncate(race_result.summary) %></td>
+        <td><%= race_result.runner.try(:name) %></td>
+        <td><%= truncate(race_result.race.try(:name)) %></td>
+        <td><%= (race_result.race.date).strftime(" %m/%d/%Y") if race_result.race %></td>
+        <td><%= race_result.race.city if race_result.race %></td>
+        <td><%= race_result.race.state.name if race_result.race %></td>
+        <td><%= truncate(race_result.summary)  %></td>
         <td><%= race_result.pr %></td>
         <td><%= Time.at(race_result.time).utc.strftime("%H:%M:%S") %></td>
         <td>

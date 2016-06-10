@@ -24,7 +24,7 @@
           Runner
         </label>
 
-        <input type="text" id="runner" name="runner" placeholder="Runner" class="form-control" value="<%= @race_result.runner.name %>">
+        <%= select_tag(:runner_id, options_from_collection_for_select(Runner.all, :id, :name, @race_result.runner_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for race -->
@@ -87,7 +87,16 @@
           Time
         </label>
 
-        <input type="text" id="time" name="time" placeholder="Time" class="form-control" value="<%= Time.at(@race_result.time).utc.strftime("%H:%M:%S") %>">
+        <input type="text" id="time" name="time" placeholder="Time" class="form-control" value="<%= @race_result.time %>">
+      </div>
+
+      <!-- Label and input for race id -->
+      <div class="form-group">
+        <label for="race_id" class="control-label">
+          Race Id
+        </label>
+
+        <input type="text" id="race_id" name="race_id" placeholder="Race_id" class="form-control" value="<%= @race_result.race_id %>">
       </div>
 
       <button class="btn btn-warning">
