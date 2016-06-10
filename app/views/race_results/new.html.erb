@@ -25,7 +25,7 @@
           Runner
         </label>
 
-        <%= select_tag(:runner_id, options_from_collection_for_select(Runner.all, :id, :name, runner.name), :class => "form-control") %>
+        <%= select_tag(:runner_id, options_from_collection_for_select(Runner.all, :id, :name, @race_result.runner_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for race -->
@@ -34,7 +34,7 @@
           Race
         </label>
 
-        <input type="text" id="race" name="race" placeholder="Race" class="form-control" value="<%= @race_result.race.name %>">
+        <%= select_tag(:race_id, options_from_collection_for_select(Race.all, :id, :name, @race_result.race_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for date -->
@@ -52,7 +52,7 @@
           City
         </label>
 
-        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @race_result.race.city %>">
+        <%= select_tag(:race_id, options_from_collection_for_select(Race.all, :id, :city, @race_result.race_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for state -->
@@ -61,7 +61,7 @@
           State
         </label>
 
-        <%= select_tag(:state_id, options_from_collection_for_select(State.all, :id, :name, state.name), :class => "form-control") %>
+        <%= select_tag(:race_id, options_from_collection_for_select(State.all, :id, :name, @race_result.race_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for summary -->
@@ -76,7 +76,7 @@
       <!-- Label and input for pr -->
       <div class="form-group">
         <label for="pr" class="control-label">
-          Pr
+          PR?
         </label>
 
         <%= select_tag(:pr, options_from_collection_for_select(Race_Result.all, :id, :pr, @race_result.pr), :class => "form-control") %>
@@ -85,10 +85,10 @@
       <!-- Label and input for time -->
       <div class="form-group">
         <label for="time" class="control-label">
-          Time
+          Time (seconds)
         </label>
 
-        <input type="text" id="time" name="time" placeholder="Time" class="form-control" value="<%= Time.at(@race_result.time).utc.strftime("%H:%M:%S") %>">
+        <input type="integer" id="time" name="time" placeholder="Time" class="form-control" value="<%= @race_result.time) %>">
       </div>
 
       <button class="btn btn-success">

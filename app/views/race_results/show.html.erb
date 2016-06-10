@@ -1,10 +1,25 @@
 <div class="page-header">
-  <h3>Race Result #<%= @race_result.id %></h3>
+  <h3>Race Result: <%= @race_result.race.name %> </h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
+      <dt>Runner</dt>
+      <dd><%= @race_result.runner.name %></dd>
+
+      <dt>Race</dt>
+      <dd><%= @race_result.race.name %></dd>
+
+      <dt>Date</dt>
+      <dd><%= @race_result.race.date.strftime(" %m/%d/%Y") %></dd>
+
+      <dt>City</dt>
+      <dd><%= @race_result.race.city %></dd>
+
+      <dt>State</dt>
+      <dd><%= @race_result.race.state.name %></dd>
+
       <dt>Summary</dt>
       <dd><%= @race_result.summary %></dd>
 
@@ -12,13 +27,7 @@
       <dd><%= @race_result.pr %></dd>
 
       <dt>Time</dt>
-      <dd><%= @race_result.time %></dd>
-
-      <dt>Race</dt>
-      <dd><%= @race_result.race_id %></dd>
-
-      <dt>Runner</dt>
-      <dd><%= @race_result.runner_id %></dd>
+      <dd><%= Time.at(@race_result.time).utc.strftime("%H:%M:%S") %></dd>
 
     </dl>
 
