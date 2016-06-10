@@ -28,9 +28,9 @@
       <dd><%= result.summary %></dd>
       <% end %>
 
-      <% race.photos.each do |photo| %>
       <dt>Photos:</dt>
-      <dd> <img src="<%= photo.photo_url %>" width= "40%"></dd>
+      <% race.photos.each do |photo| %>
+      <dd> <img src="<%= photo.photo_url %>" width= "90%"></dd>
 
       <% end %>
     </dl>
