@@ -1,6 +1,8 @@
 class StatesController < ApplicationController
   def index
     @states = State.all
+    @steve = Runner.find_by(:id => 1)
+    @may = Runner.find_by(:id => 2)
   end
 
   def show
