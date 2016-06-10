@@ -15,7 +15,7 @@ class RacesController < ApplicationController
     @race = Race.new
     @race.state_id = params[:state_id]
     @race.city = params[:city]
-    @race.state = params[:state]
+    # @race.state = params[:state]
     @race.date = params[:date]
     @race.name = params[:name]
 
