@@ -5,14 +5,14 @@
 <div class="row">
 
 
-    <% @state.races.each do |race| %>
-    <div class="col-md-4">
+  <% @state.races.each do |race| %>
+  <div class="col-md-4">
     <dl class="dl-horizontal">
       <dt>Race:</dt>
       <dd><%= race.name %></dd>
 
       <dt>Date:</dt>
-      <dd><%= race.date %></dd>
+      <dd><%= (race.date).strftime(" %m/%d/%Y") %></dd>
 
       <% race.race_results.each do |result| %>
       <dt>Runner:</dt>
@@ -34,18 +34,12 @@
 
       <% end %>
     </dl>
-    </div>
-    <% end %>
-
-    <div class="btn-group btn-group-justified">
-      <a href="/states" class="btn btn-primary">
-        Back
-      </a>
-      <a href="/states/<%= @state.id %>/edit" class="btn btn-warning"<%  %>warning">
-        Edit
-      </a>
-      <a href="/delete_state/<%= @state.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
-    </div>
   </div>
+  <% end %>
+
+  <div class="btn-group btn-group-justified">
+    <a href="/states" class="btn btn-primary">
+      Back
+    </a>
+  </div>
+</div>
