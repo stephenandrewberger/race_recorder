@@ -18,7 +18,7 @@
       <% @photos.each do |photo| %>
       <tr>
         <td><%= photo.runner.name %></td>
-        <td><%= photo.race.name %></td>
+        <td><%= photo.race.name if photo.race %></td>
         <td><img src="<%= photo.photo_url %>" width="40%"</td>
         <td>
           <a href="/photos/<%= photo.id %>" class="btn btn-primary">Show</a>
