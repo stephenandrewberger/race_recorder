@@ -6,7 +6,7 @@
 
 
   <% @state.races.each do |race| %>
-  <div class="col-md-4">
+  <div class="col-md-4" style="panel panel-default; height: 900px;">
     <dl class="dl-horizontal">
       <dt>Race:</dt>
       <dd><%= race.name %></dd>
@@ -26,6 +26,7 @@
 
       <dt>Summary:</dt>
       <dd><%= result.summary %></dd>
+      <hr>
       <% end %>
 
       <dt>Photos:</dt>
